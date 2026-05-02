@@ -38,6 +38,23 @@ event_date
 2024-02-01
 ```
 
+More detailed input notes live in `inputs/README.md`.
+
+## Setup
+
+From the repository root:
+
+```bash
+python -m pip install -r backtests/generated/es_replenishment_fragility_2026_05_02/requirements.txt
+```
+
+Set the required R2 environment variables before running:
+
+- `R2_ENDPOINT`
+- `R2_ACCESS_KEY_ID`
+- `R2_SECRET_ACCESS_KEY`
+- `R2_BUCKET`
+
 ## Run
 
 From the repository root:
