@@ -1,0 +1,41 @@
+runtime:
+  timezone: America/New_York
+  output_dir: backtests/generated/es_replenishment_fragility_2026_05_02/output
+  contract_path: strategy-contracts/es-replenishment-fragility/2026-05-02-strategy_contract.yaml
+
+data:
+  source: r2
+  market_data:
+    r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
+  local_cache_dir: .cache/r2
+
+columns:
+  timestamp: timestamp
+  open: open
+  high: high
+  low: low
+  close: close
+  volume: volume
+
+event_calendars:
+  macro_release_calendar:
+    path: backtests/generated/es_replenishment_fragility_2026_05_02/inputs/macro_release_calendar.csv
+    date_column: event_date
+  cash_open_calendar:
+    path: backtests/generated/es_replenishment_fragility_2026_05_02/inputs/cash_open_calendar.csv
+    date_column: event_date
+
+execution:
+  tick_size: 0.25
+  point_value: 50.0
+  commissions: 2.5
+
+strategy:
+  id: es_replenishment_fragility_2026_05_02
+  parameter_grid:
+    impulse_atr_threshold: [0.5, 0.75, 1.0, 1.25]
+    dispersion_max: [1.25, 1.5, 1.75, 2.0]
+    volume_min: [0.8, 1.0, 1.2, 1.5]
+    containment_min: [0.45, 0.55, 0.65, 0.75]
+    stop_range_multiple: [0.75, 1.0, 1.25]
+    exit_horizon_minutes: [10, 15, 20]
