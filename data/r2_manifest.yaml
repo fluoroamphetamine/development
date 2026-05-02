@@ -1,15 +1,9 @@
-# Cloudflare R2 market-data manifest.
-#
-# This file is the canonical repo-local index that generated backtests should read
-# before choosing R2 object keys. It is seeded from the successful GitHub Actions
-# R2 smoke-test output and can be refreshed with scripts/build_r2_manifest.py.
-
 bucket: futures-data
+generated_at_utc: 2026-05-02 09:18:40 UTC
 endpoint_env: R2_ENDPOINT
 bucket_env: R2_BUCKET
 access_key_env: R2_ACCESS_KEY_ID
 secret_key_env: R2_SECRET_ACCESS_KEY
-
 known_datasets:
   ES_1m:
     instrument: ES
@@ -17,26 +11,69 @@ known_datasets:
     type: ohlcv
     format: parquet
     r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
-    status: confirmed_from_r2_smoke_test
-
+    status: confirmed_by_r2_manifest_refresh
   NIY_1m:
     instrument: NIY
     timeframe: 1m
     type: ohlcv
     format: parquet
     r2_key: NIY/niy-20100606-20251127.ohlcv-1m.parquet
-    status: confirmed_from_r2_smoke_test
-
+    status: confirmed_by_r2_manifest_refresh
   NQ_1m:
     instrument: NQ
     timeframe: 1m
     type: ohlcv
     format: parquet
+    r2_key: NQ/NQ-20100606-20260315.ohlcv-1m.parquet
+    status: confirmed_by_r2_manifest_refresh
+  RTY_1m:
+    instrument: RTY
+    timeframe: 1m
+    type: ohlcv
+    format: parquet
+    r2_key: RTY/rty-20200901-20251123.ohlcv-1m.parquet
+    status: confirmed_by_r2_manifest_refresh
+  YM_1m:
+    instrument: YM
+    timeframe: 1m
+    type: ohlcv
+    format: parquet
+    r2_key: YM/ym-20200901-20251123.ohlcv-1m.parquet
+    status: confirmed_by_r2_manifest_refresh
+prefixes:
+  ES:
+    r2_prefix: ES/
+    object_count: 2
+    parquet_count: 1
+  NIY:
+    r2_prefix: NIY/
+    object_count: 2
+    parquet_count: 1
+  NQ:
     r2_prefix: NQ/
-    status: prefix_confirmed_exact_key_not_yet_listed
-
+    object_count: 9
+    parquet_count: 7
+  RTY:
+    r2_prefix: RTY/
+    object_count: 2
+    parquet_count: 1
+  YM:
+    r2_prefix: YM/
+    object_count: 2
+    parquet_count: 1
+all_parquet_keys:
+- ES/ES-20100606-20260315.ohlcv-1m.parquet
+- NIY/niy-20100606-20251127.ohlcv-1m.parquet
+- NQ/NQ-20100606-20260315.ohlcv-1m.parquet
+- NQ/tick/2020_merged_nq.parquet
+- NQ/tick/2021_merged_nq.parquet
+- NQ/tick/2022_merged_nq.parquet
+- NQ/tick/2023_merged_nq.parquet
+- NQ/tick/2024_merged_nq.parquet
+- NQ/tick/2025_merged_nq.parquet
+- RTY/rty-20200901-20251123.ohlcv-1m.parquet
+- YM/ym-20200901-20251123.ohlcv-1m.parquet
 notes:
-  - Generated backtests must not hard-code R2 credentials.
-  - Generated backtests should use backtests.lib.r2_data for runtime loading.
-  - For exact object reads, prefer r2_key over r2_prefix.
-  - If only r2_prefix is known, the development agent should either list candidate keys or fail clearly if more than one parquet file matches.
+- Generated backtests must not hard-code R2 credentials.
+- Generated backtests should use backtests.lib.r2_data for runtime loading.
+- For exact object reads, prefer known_datasets.<dataset_id>.r2_key over prefixes.
