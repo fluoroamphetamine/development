@@ -42,10 +42,15 @@ jobs:
           mkdir -p backtests/generated
           mkdir -p backtests/results
           mkdir -p scripts
+          mkdir -p data
 
       - name: Verify R2 access
         run: |
           python scripts/check_r2_access.py
+
+      - name: Refresh R2 manifest
+        run: |
+          python scripts/build_r2_manifest.py --output data/r2_manifest.yaml
 
       - name: Find next untested strategy
         id: next_strategy
@@ -97,11 +102,11 @@ jobs:
             --status "${{ steps.final_status.outputs.status }}" \
             --workflow-run "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      - name: Commit results
-        if: always() && steps.next_strategy.outputs.has_strategy == 'true'
+      - name: Commit updates
+        if: always()
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add backtests/BACKTEST_LEDGER.md backtests/results/
-          git commit -m "Run backtest for ${{ steps.next_strategy.outputs.strategy_id }}" || echo "No changes to commit"
+          git add data/r2_manifest.yaml backtests/BACKTEST_LEDGER.md backtests/results/
+          git commit -m "Refresh R2 manifest and backtest outputs" || echo "No changes to commit"
           git push
