@@ -1,19 +1,11 @@
 # Input Calendars
 
-Place the required public event calendar files in this folder before running the backtest.
+Provide two local event calendars:
 
-## Required Files
+- `macro_release_calendar.csv`
+- `cash_open_calendar.csv`
 
-- `macro_release_calendar.csv` or `.parquet`
-- `cash_open_calendar.csv` or `.parquet`
-
-## Minimum Schema
-
-Each file must contain at least one date column. The default config expects:
-
-- `event_date`
-
-Example:
+Minimum schema:
 
 ```csv
 event_date
@@ -21,8 +13,9 @@ event_date
 2024-02-01
 ```
 
-## Notes
+Notes:
 
-- `macro_release_calendar` should include only relevant 08:30 ET U.S. macro-release dates.
-- `cash_open_calendar` should include valid regular 09:30 ET cash-session opens and exclude holidays or truncated sessions.
-- If you use a different date-column name, update `config.yaml` accordingly.
+- Dates should be trading dates in `YYYY-MM-DD` form.
+- The backtest maps `macro_release_calendar.csv` to the 08:30 ET family.
+- The backtest maps `cash_open_calendar.csv` to the 09:30 ET family.
+- Events with missing required bars around the observation or continuation windows are dropped and logged.
