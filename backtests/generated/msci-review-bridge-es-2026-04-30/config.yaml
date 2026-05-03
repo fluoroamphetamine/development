@@ -1,0 +1,57 @@
+strategy:
+  id: msci-review-bridge-es-2026-04-30
+  contract_path: contracts/msci-review-bridge-es/strategy_contract.yaml
+
+data:
+  source: r2
+  market_data:
+    r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
+  local_cache_dir: .cache/r2
+
+columns:
+  timestamp: datetime_utc
+  open: Open
+  high: High
+  low: Low
+  close: Close
+  volume: Volume
+
+event_data:
+  timezone: America/New_York
+  month_end_overlap_business_days: 2
+  msci_review_schedule:
+    path: backtests/generated/msci-review-bridge-es-2026-04-30/inputs/msci_review_schedule.example.csv
+    format: csv
+    date_column: review_date
+
+parameters:
+  bridge_end_times:
+    - "16:15"
+    - "16:20"
+    - "16:30"
+  month_end_overlap_policies:
+    - all_events
+    - exclude_overlap
+    - stratify_overlap
+  minimum_bridge_absorption_ratios:
+    - 0.25
+    - 0.5
+    - 0.75
+  next_open_exit_variants:
+    - "09:30"
+    - "09:35"
+    - "10:00"
+
+execution:
+  slippage_ticks_per_side: 1
+  commissions_per_side_usd: 2.50
+  tick_size: 0.25
+  point_value: 50
+
+walk_forward:
+  train_events: 24
+  test_events: 8
+  step_events: 8
+
+runtime:
+  output_dir: backtests/results/msci-review-bridge-es-2026-04-30
