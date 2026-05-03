@@ -139,8 +139,12 @@ def main() -> int:
             cmd.extend(["--contract", contract_path.as_posix()])
 
     env = os.environ.copy()
+    repo_root = Path.cwd().as_posix()
+    existing_pythonpath = env.get("PYTHONPATH", "")
+    env["PYTHONPATH"] = repo_root if not existing_pythonpath else f"{repo_root}:{existing_pythonpath}"
 
     with log_path.open("a", encoding="utf-8") as log_file:
+        log_file.write(f"PYTHONPATH={env['PYTHONPATH']}\n")
         log_file.write(f"Running command: {' '.join(cmd)}\n")
         result = subprocess.run(cmd, stdout=log_file, stderr=subprocess.STDOUT, env=env)
 
