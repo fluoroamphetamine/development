@@ -1,7 +1,8 @@
-runtime:
-  timezone: America/New_York
-  output_dir: backtests/results/es-replenishment-fragility-2026-05-02
-  contract_path: contracts/es-replenishment-fragility/strategy_contract.yaml
+strategy:
+  id: es-replenishment-fragility-2026-05-02
+  name: ES benchmark-window replenishment-failure proxy stack
+  source_repo: fluoroamphetamine/strategy
+  source_contract_path: contracts/es-replenishment-fragility/strategy_contract.yaml
 data:
   source: r2
   market_data:
@@ -17,43 +18,42 @@ columns:
 event_calendars:
   macro_release_calendar:
     path: backtests/generated/es-replenishment-fragility-2026-05-02/inputs/macro_release_calendar.csv
-    date_column: event_date
+    required: false
+    notes: Leave empty rather than invent macro-release dates; 08:30 events will be
+      skipped when unavailable.
   cash_open_calendar:
     path: backtests/generated/es-replenishment-fragility-2026-05-02/inputs/cash_open_calendar.csv
-    date_column: event_date
+    required: true
+    notes: A simple trading-date calendar is enough for the 09:30 family.
 execution:
-  tick_size: 0.25
   point_value: 50.0
-  commissions: 2.5
+  tick_size: 0.25
+  slippage_ticks_per_side: 1.0
+  commissions_per_side_usd: 2.5
+parameter_grid:
+  observation_window_minutes:
+  - 1
+  - 3
+  - 5
+  continuation_horizon_minutes:
+  - 5
+  - 15
+  - 30
+  volatility_threshold_quantile:
+  - 0.6
+  - 0.7
+  - 0.8
+  proxy_threshold_quantile:
+  - 0.6
+  - 0.7
+  - 0.8
+  window_family_mode:
+  - 08:30_only
+  - 09:30_only
+  - separate_models
 walk_forward:
-  initial_train_years: 5
+  train_years: 5
   test_years: 1
-strategy:
-  id: es-replenishment-fragility-2026-05-02
-  volume_lookback_events: 20
-  report_horizon_minutes: 15
-  parameter_grid:
-    observation_window_minutes:
-    - 1
-    - 3
-    - 5
-    continuation_horizon_minutes:
-    - 5
-    - 15
-    - 30
-    volatility_threshold_quantile:
-    - 0.6
-    - 0.7
-    - 0.8
-    proxy_threshold_quantile:
-    - 0.6
-    - 0.7
-    - 0.8
-    stop_range_multiple:
-    - 0.75
-    - 1.0
-    - 1.25
-    window_family_mode:
-    - 08:30_only
-    - 09:30_only
-    - separate_models
+runtime:
+  output_dir: backtests/results/es-replenishment-fragility-2026-05-02
+  contract_path: strategies/pending/es-replenishment-fragility-2026-05-02.yaml

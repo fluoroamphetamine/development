@@ -1,2 +1,16 @@
-Created empty macro calendar placeholder: backtests/generated/es-replenishment-fragility-2026-05-02/inputs/macro_release_calendar.csv
-Created weekday cash-open calendar: backtests/generated/es-replenishment-fragility-2026-05-02/inputs/cash_open_calendar.csv
+Requirement already satisfied: polars>=1.0.0 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from -r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 1)) (1.40.1)
+Requirement already satisfied: PyYAML>=6.0 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from -r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 2)) (6.0.3)
+Requirement already satisfied: boto3>=1.34.0 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from -r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (1.43.2)
+Requirement already satisfied: polars-runtime-32==1.40.1 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from polars>=1.0.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 1)) (1.40.1)
+Requirement already satisfied: botocore<1.44.0,>=1.43.2 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from boto3>=1.34.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (1.43.2)
+Requirement already satisfied: jmespath<2.0.0,>=0.7.1 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from boto3>=1.34.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (1.1.0)
+Requirement already satisfied: s3transfer<0.18.0,>=0.17.0 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from boto3>=1.34.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (0.17.0)
+Requirement already satisfied: python-dateutil<3.0.0,>=2.1 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from botocore<1.44.0,>=1.43.2->boto3>=1.34.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (2.9.0.post0)
+Requirement already satisfied: urllib3!=2.2.0,<3,>=1.25.4 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from botocore<1.44.0,>=1.43.2->boto3>=1.34.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (2.6.3)
+Requirement already satisfied: six>=1.5 in /opt/hostedtoolcache/Python/3.12.13/x64/lib/python3.12/site-packages (from python-dateutil<3.0.0,>=2.1->botocore<1.44.0,>=1.43.2->boto3>=1.34.0->-r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt (line 3)) (1.17.0)
+Installing requirements: /opt/hostedtoolcache/Python/3.12.13/x64/bin/python -m pip install -r backtests/generated/es-replenishment-fragility-2026-05-02/requirements.txt
+Traceback (most recent call last):
+  File "/home/runner/work/development/development/backtests/generated/es-replenishment-fragility-2026-05-02/backtest.py", line 16, in <module>
+    from backtests.lib.r2_data import load_market_data_from_config, normalize_ohlcv_columns
+ModuleNotFoundError: No module named 'backtests'
+Running command: /opt/hostedtoolcache/Python/3.12.13/x64/bin/python backtests/generated/es-replenishment-fragility-2026-05-02/backtest.py --config backtests/results/es-replenishment-fragility-2026-05-02/config.runtime.yaml
