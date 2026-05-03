@@ -56,4 +56,3 @@ walk_forward:
   test_years: 1
 runtime:
   output_dir: backtests/results/es-replenishment-fragility-2026-05-02
-  contract_path: strategies/pending/es-replenishment-fragility-2026-05-02.yaml
