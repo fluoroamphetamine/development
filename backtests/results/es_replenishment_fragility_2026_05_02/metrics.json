@@ -1,0 +1,1251 @@
+{
+  "strategy_id": "es_replenishment_fragility_2026_05_02",
+  "contract_path": "contracts/es-replenishment-fragility/strategy_contract.yaml",
+  "overall": {
+    "baseline": {
+      "classification_accuracy": 0.5326615705350938,
+      "confusion_matrix": {
+        "tp": 619,
+        "fp": 548,
+        "tn": 914,
+        "fn": 797,
+        "accuracy": 0.5326615705350938,
+        "count": 2878
+      },
+      "average_trade_return_usd": -13.05484147386461,
+      "trade_count": 1167,
+      "hit_rate": 0.37532133676092544,
+      "profit_factor": 0.9228050618800907,
+      "max_drawdown_usd": 21436.875
+    },
+    "treatment": {
+      "classification_accuracy": 0.5333564975677554,
+      "confusion_matrix": {
+        "tp": 74,
+        "fp": 68,
+        "tn": 1461,
+        "fn": 1275,
+        "accuracy": 0.5333564975677554,
+        "count": 2878
+      },
+      "average_trade_return_usd": -24.718309859154928,
+      "trade_count": 142,
+      "hit_rate": 0.4647887323943662,
+      "profit_factor": 0.7366841710427607,
+      "max_drawdown_usd": 3862.5
+    }
+  },
+  "comparison": {
+    "treatment_minus_baseline_accuracy": 0.0006949270326616075
+  },
+  "by_event_family": [
+    {
+      "rule": "baseline",
+      "event_window_name": "cash_open_0930",
+      "tp": 619,
+      "fp": 548,
+      "tn": 914,
+      "fn": 797,
+      "accuracy": 0.5326615705350938,
+      "count": 2878
+    },
+    {
+      "rule": "treatment",
+      "event_window_name": "cash_open_0930",
+      "tp": 74,
+      "fp": 68,
+      "tn": 1461,
+      "fn": 1275,
+      "accuracy": 0.5333564975677554,
+      "count": 2878
+    }
+  ],
+  "folds": [
+    {
+      "fold_name": "2010-2014_to_2015-2015",
+      "rule": "baseline",
+      "classification_accuracy": 0.53125,
+      "confusion_matrix": {
+        "tp": 40,
+        "fp": 36,
+        "tn": 96,
+        "fn": 84,
+        "accuracy": 0.53125,
+        "count": 256
+      },
+      "average_trade_return_usd": -9.93421052631579,
+      "trade_count": 76,
+      "hit_rate": 0.4473684210526316,
+      "profit_factor": 0.8362255965292842,
+      "max_drawdown_usd": 1445.0
+    },
+    {
+      "fold_name": "2010-2014_to_2015-2015",
+      "rule": "treatment",
+      "classification_accuracy": 0.58203125,
+      "confusion_matrix": {
+        "tp": 12,
+        "fp": 6,
+        "tn": 137,
+        "fn": 101,
+        "accuracy": 0.58203125,
+        "count": 256
+      },
+      "average_trade_return_usd": -15.416666666666666,
+      "trade_count": 18,
+      "hit_rate": 0.5555555555555556,
+      "profit_factor": 0.6837606837606838,
+      "max_drawdown_usd": 630.0
+    },
+    {
+      "fold_name": "2010-2015_to_2016-2016",
+      "rule": "baseline",
+      "classification_accuracy": 0.5077519379844961,
+      "confusion_matrix": {
+        "tp": 21,
+        "fp": 23,
+        "tn": 110,
+        "fn": 104,
+        "accuracy": 0.5077519379844961,
+        "count": 258
+      },
+      "average_trade_return_usd": -33.90625,
+      "trade_count": 44,
+      "hit_rate": 0.4090909090909091,
+      "profit_factor": 0.5394559135635733,
+      "max_drawdown_usd": 1511.875
+    },
+    {
+      "fold_name": "2010-2015_to_2016-2016",
+      "rule": "treatment",
+      "classification_accuracy": 0.5116279069767442,
+      "confusion_matrix": {
+        "tp": 6,
+        "fp": 7,
+        "tn": 126,
+        "fn": 119,
+        "accuracy": 0.5116279069767442,
+        "count": 258
+      },
+      "average_trade_return_usd": -50.67307692307692,
+      "trade_count": 13,
+      "hit_rate": 0.38461538461538464,
+      "profit_factor": 0.37037037037037035,
+      "max_drawdown_usd": 704.375
+    },
+    {
+      "fold_name": "2010-2016_to_2017-2017",
+      "rule": "baseline",
+      "classification_accuracy": 0.58984375,
+      "confusion_matrix": {
+        "tp": 29,
+        "fp": 22,
+        "tn": 122,
+        "fn": 83,
+        "accuracy": 0.58984375,
+        "count": 256
+      },
+      "average_trade_return_usd": -14.252450980392156,
+      "trade_count": 51,
+      "hit_rate": 0.3137254901960784,
+      "profit_factor": 0.7891205802357207,
+      "max_drawdown_usd": 1824.375
+    },
+    {
+      "fold_name": "2010-2016_to_2017-2017",
+      "rule": "treatment",
+      "classification_accuracy": 0.5859375,
+      "confusion_matrix": {
+        "tp": 3,
+        "fp": 4,
+        "tn": 147,
+        "fn": 102,
+        "accuracy": 0.5859375,
+        "count": 256
+      },
+      "average_trade_return_usd": -23.303571428571427,
+      "trade_count": 7,
+      "hit_rate": 0.42857142857142855,
+      "profit_factor": 0.6881720430107527,
+      "max_drawdown_usd": 370.625
+    },
+    {
+      "fold_name": "2010-2017_to_2018-2018",
+      "rule": "baseline",
+      "classification_accuracy": 0.5408560311284046,
+      "confusion_matrix": {
+        "tp": 48,
+        "fp": 50,
+        "tn": 91,
+        "fn": 68,
+        "accuracy": 0.5408560311284046,
+        "count": 257
+      },
+      "average_trade_return_usd": -54.298469387755105,
+      "trade_count": 98,
+      "hit_rate": 0.29591836734693877,
+      "profit_factor": 0.5969131711012214,
+      "max_drawdown_usd": 5351.875
+    },
+    {
+      "fold_name": "2010-2017_to_2018-2018",
+      "rule": "treatment",
+      "classification_accuracy": 0.5525291828793775,
+      "confusion_matrix": {
+        "tp": 15,
+        "fp": 17,
+        "tn": 127,
+        "fn": 98,
+        "accuracy": 0.5525291828793775,
+        "count": 257
+      },
+      "average_trade_return_usd": -35.2734375,
+      "trade_count": 32,
+      "hit_rate": 0.375,
+      "profit_factor": 0.5473684210526316,
+      "max_drawdown_usd": 1283.75
+    },
+    {
+      "fold_name": "2010-2018_to_2019-2019",
+      "rule": "baseline",
+      "classification_accuracy": 0.5193798449612403,
+      "confusion_matrix": {
+        "tp": 61,
+        "fp": 44,
+        "tn": 73,
+        "fn": 80,
+        "accuracy": 0.5193798449612403,
+        "count": 258
+      },
+      "average_trade_return_usd": 34.642857142857146,
+      "trade_count": 105,
+      "hit_rate": 0.45714285714285713,
+      "profit_factor": 1.3794992175273866,
+      "max_drawdown_usd": 1416.25
+    },
+    {
+      "fold_name": "2010-2018_to_2019-2019",
+      "rule": "treatment",
+      "classification_accuracy": 0.46511627906976744,
+      "confusion_matrix": {
+        "tp": 4,
+        "fp": 9,
+        "tn": 116,
+        "fn": 129,
+        "accuracy": 0.46511627906976744,
+        "count": 258
+      },
+      "average_trade_return_usd": -40.33653846153846,
+      "trade_count": 13,
+      "hit_rate": 0.3076923076923077,
+      "profit_factor": 0.477909147479776,
+      "max_drawdown_usd": 589.375
+    },
+    {
+      "fold_name": "2010-2019_to_2020-2020",
+      "rule": "baseline",
+      "classification_accuracy": 0.5217391304347826,
+      "confusion_matrix": {
+        "tp": 79,
+        "fp": 71,
+        "tn": 53,
+        "fn": 50,
+        "accuracy": 0.5217391304347826,
+        "count": 253
+      },
+      "average_trade_return_usd": -85.47916666666667,
+      "trade_count": 150,
+      "hit_rate": 0.32666666666666666,
+      "profit_factor": 0.5867493906492356,
+      "max_drawdown_usd": 15663.75
+    },
+    {
+      "fold_name": "2010-2019_to_2020-2020",
+      "rule": "treatment",
+      "classification_accuracy": 0.5612648221343873,
+      "confusion_matrix": {
+        "tp": 8,
+        "fp": 2,
+        "tn": 134,
+        "fn": 109,
+        "accuracy": 0.5612648221343873,
+        "count": 253
+      },
+      "average_trade_return_usd": 116.5625,
+      "trade_count": 10,
+      "hit_rate": 0.8,
+      "profit_factor": 3.698986975397974,
+      "max_drawdown_usd": 431.875
+    },
+    {
+      "fold_name": "2010-2020_to_2021-2021",
+      "rule": "baseline",
+      "classification_accuracy": 0.5271317829457365,
+      "confusion_matrix": {
+        "tp": 64,
+        "fp": 57,
+        "tn": 72,
+        "fn": 65,
+        "accuracy": 0.5271317829457365,
+        "count": 258
+      },
+      "average_trade_return_usd": 17.15909090909091,
+      "trade_count": 121,
+      "hit_rate": 0.35537190082644626,
+      "profit_factor": 1.098301473634373,
+      "max_drawdown_usd": 3053.125
+    },
+    {
+      "fold_name": "2010-2020_to_2021-2021",
+      "rule": "treatment",
+      "classification_accuracy": 0.49224806201550386,
+      "confusion_matrix": {
+        "tp": 3,
+        "fp": 5,
+        "tn": 124,
+        "fn": 126,
+        "accuracy": 0.49224806201550386,
+        "count": 258
+      },
+      "average_trade_return_usd": -22.96875,
+      "trade_count": 8,
+      "hit_rate": 0.375,
+      "profit_factor": 0.8338983050847457,
+      "max_drawdown_usd": 868.75
+    },
+    {
+      "fold_name": "2010-2021_to_2022-2022",
+      "rule": "baseline",
+      "classification_accuracy": 0.5232558139534884,
+      "confusion_matrix": {
+        "tp": 85,
+        "fp": 80,
+        "tn": 50,
+        "fn": 43,
+        "accuracy": 0.5232558139534884,
+        "count": 258
+      },
+      "average_trade_return_usd": 12.727272727272727,
+      "trade_count": 165,
+      "hit_rate": 0.296969696969697,
+      "profit_factor": 1.0484373198016377,
+      "max_drawdown_usd": 8213.125
+    },
+    {
+      "fold_name": "2010-2021_to_2022-2022",
+      "rule": "treatment",
+      "classification_accuracy": 0.46511627906976744,
+      "confusion_matrix": {
+        "tp": 5,
+        "fp": 8,
+        "tn": 115,
+        "fn": 130,
+        "accuracy": 0.46511627906976744,
+        "count": 258
+      },
+      "average_trade_return_usd": -75.1923076923077,
+      "trade_count": 13,
+      "hit_rate": 0.38461538461538464,
+      "profit_factor": 0.5636160714285714,
+      "max_drawdown_usd": 1952.5
+    },
+    {
+      "fold_name": "2010-2022_to_2023-2023",
+      "rule": "baseline",
+      "classification_accuracy": 0.5291828793774319,
+      "confusion_matrix": {
+        "tp": 66,
+        "fp": 53,
+        "tn": 70,
+        "fn": 68,
+        "accuracy": 0.5291828793774319,
+        "count": 257
+      },
+      "average_trade_return_usd": -10.46218487394958,
+      "trade_count": 119,
+      "hit_rate": 0.42857142857142855,
+      "profit_factor": 0.9292211483797612,
+      "max_drawdown_usd": 3867.5
+    },
+    {
+      "fold_name": "2010-2022_to_2023-2023",
+      "rule": "treatment",
+      "classification_accuracy": 0.5175097276264592,
+      "confusion_matrix": {
+        "tp": 6,
+        "fp": 3,
+        "tn": 127,
+        "fn": 121,
+        "accuracy": 0.5175097276264592,
+        "count": 257
+      },
+      "average_trade_return_usd": 15.13888888888889,
+      "trade_count": 9,
+      "hit_rate": 0.6666666666666666,
+      "profit_factor": 1.1350681536555143,
+      "max_drawdown_usd": 828.75
+    },
+    {
+      "fold_name": "2010-2023_to_2024-2024",
+      "rule": "baseline",
+      "classification_accuracy": 0.5096525096525096,
+      "confusion_matrix": {
+        "tp": 46,
+        "fp": 46,
+        "tn": 86,
+        "fn": 81,
+        "accuracy": 0.5096525096525096,
+        "count": 259
+      },
+      "average_trade_return_usd": -34.755434782608695,
+      "trade_count": 92,
+      "hit_rate": 0.40217391304347827,
+      "profit_factor": 0.7940418679549114,
+      "max_drawdown_usd": 4902.5
+    },
+    {
+      "fold_name": "2010-2023_to_2024-2024",
+      "rule": "treatment",
+      "classification_accuracy": 0.5444015444015444,
+      "confusion_matrix": {
+        "tp": 5,
+        "fp": 4,
+        "tn": 136,
+        "fn": 114,
+        "accuracy": 0.5444015444015444,
+        "count": 259
+      },
+      "average_trade_return_usd": -24.444444444444443,
+      "trade_count": 9,
+      "hit_rate": 0.4444444444444444,
+      "profit_factor": 0.6549019607843137,
+      "max_drawdown_usd": 422.5
+    },
+    {
+      "fold_name": "2010-2024_to_2025-2025",
+      "rule": "baseline",
+      "classification_accuracy": 0.5525291828793775,
+      "confusion_matrix": {
+        "tp": 67,
+        "fp": 54,
+        "tn": 75,
+        "fn": 61,
+        "accuracy": 0.5525291828793775,
+        "count": 257
+      },
+      "average_trade_return_usd": 40.196280991735534,
+      "trade_count": 121,
+      "hit_rate": 0.45454545454545453,
+      "profit_factor": 1.1847666081010495,
+      "max_drawdown_usd": 3092.5
+    },
+    {
+      "fold_name": "2010-2024_to_2025-2025",
+      "rule": "treatment",
+      "classification_accuracy": 0.5797665369649806,
+      "confusion_matrix": {
+        "tp": 7,
+        "fp": 2,
+        "tn": 142,
+        "fn": 106,
+        "accuracy": 0.5797665369649806,
+        "count": 257
+      },
+      "average_trade_return_usd": 16.875,
+      "trade_count": 9,
+      "hit_rate": 0.6666666666666666,
+      "profit_factor": 1.1343283582089552,
+      "max_drawdown_usd": 586.875
+    },
+    {
+      "fold_name": "2010-2025_to_2026-2026",
+      "rule": "baseline",
+      "classification_accuracy": 0.5686274509803921,
+      "confusion_matrix": {
+        "tp": 13,
+        "fp": 12,
+        "tn": 16,
+        "fn": 10,
+        "accuracy": 0.5686274509803921,
+        "count": 51
+      },
+      "average_trade_return_usd": -94.125,
+      "trade_count": 25,
+      "hit_rate": 0.36,
+      "profit_factor": 0.7176179404485112,
+      "max_drawdown_usd": 3891.25
+    },
+    {
+      "fold_name": "2010-2025_to_2026-2026",
+      "rule": "treatment",
+      "classification_accuracy": 0.5882352941176471,
+      "confusion_matrix": {
+        "tp": 0,
+        "fp": 1,
+        "tn": 30,
+        "fn": 20,
+        "accuracy": 0.5882352941176471,
+        "count": 51
+      },
+      "average_trade_return_usd": -830.0,
+      "trade_count": 1,
+      "hit_rate": 0.0,
+      "profit_factor": 0.0,
+      "max_drawdown_usd": 830.0
+    }
+  ],
+  "chosen_parameters": [
+    {
+      "fold_name": "2010-2014_to_2015-2015",
+      "rule": "baseline",
+      "train_window": "2010-2014",
+      "test_window": "2015-2015",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 5, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 1.25, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8571428571428571, \"dispersion_max\": 2.0, \"volatility_gate_bp\": 16.263442688099417, \"volume_min\": 1.0990992771493548}}",
+      "train_classification_accuracy": 0.5795356835769562,
+      "test_classification_accuracy": 0.53125
+    },
+    {
+      "fold_name": "2010-2014_to_2015-2015",
+      "rule": "treatment",
+      "train_window": "2010-2014",
+      "test_window": "2015-2015",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.7, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.875, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.360441582272227, \"volume_min\": 1.1972594555331744}}",
+      "train_classification_accuracy": 0.5907136715391229,
+      "test_classification_accuracy": 0.58203125
+    },
+    {
+      "fold_name": "2010-2015_to_2016-2016",
+      "rule": "baseline",
+      "train_window": "2010-2015",
+      "test_window": "2016-2016",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.711095784627538, \"volume_min\": 1.0910219491980668}}",
+      "train_classification_accuracy": 0.5722339675828048,
+      "test_classification_accuracy": 0.5077519379844961
+    },
+    {
+      "fold_name": "2010-2015_to_2016-2016",
+      "rule": "treatment",
+      "train_window": "2010-2015",
+      "test_window": "2016-2016",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.7, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.875, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.711095784627538, \"volume_min\": 1.1969162100594863}}",
+      "train_classification_accuracy": 0.5898520084566596,
+      "test_classification_accuracy": 0.5116279069767442
+    },
+    {
+      "fold_name": "2010-2016_to_2017-2017",
+      "rule": "baseline",
+      "train_window": "2010-2016",
+      "test_window": "2017-2017",
+      "params_json": "{\"continuation_horizon_minutes\": 30, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.086575535771567, \"volume_min\": 1.0818665294218561}}",
+      "train_classification_accuracy": 0.5652951699463328,
+      "test_classification_accuracy": 0.58984375
+    },
+    {
+      "fold_name": "2010-2016_to_2017-2017",
+      "rule": "treatment",
+      "train_window": "2010-2016",
+      "test_window": "2017-2017",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.7, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.875, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.609664467232724, \"volume_min\": 1.184346184301639}}",
+      "train_classification_accuracy": 0.5778175313059034,
+      "test_classification_accuracy": 0.5859375
+    },
+    {
+      "fold_name": "2010-2017_to_2018-2018",
+      "rule": "baseline",
+      "train_window": "2010-2017",
+      "test_window": "2018-2018",
+      "params_json": "{\"continuation_horizon_minutes\": 30, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 5.754137334426811, \"volume_min\": 1.0810763141929929}}",
+      "train_classification_accuracy": 0.5680289705121573,
+      "test_classification_accuracy": 0.5408560311284046
+    },
+    {
+      "fold_name": "2010-2017_to_2018-2018",
+      "rule": "treatment",
+      "train_window": "2010-2017",
+      "test_window": "2018-2018",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 5.754137334426811, \"volume_min\": 1.0810763141929929}}",
+      "train_classification_accuracy": 0.578892912571133,
+      "test_classification_accuracy": 0.5525291828793775
+    },
+    {
+      "fold_name": "2010-2018_to_2019-2019",
+      "rule": "baseline",
+      "train_window": "2010-2018",
+      "test_window": "2019-2019",
+      "params_json": "{\"continuation_horizon_minutes\": 30, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 5.727381873295785, \"volume_min\": 1.084453110693232}}",
+      "train_classification_accuracy": 0.5643835616438356,
+      "test_classification_accuracy": 0.5193798449612403
+    },
+    {
+      "fold_name": "2010-2018_to_2019-2019",
+      "rule": "treatment",
+      "train_window": "2010-2018",
+      "test_window": "2019-2019",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.7, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.875, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.258235155466155, \"volume_min\": 1.1878802334000829}}",
+      "train_classification_accuracy": 0.5753424657534246,
+      "test_classification_accuracy": 0.46511627906976744
+    },
+    {
+      "fold_name": "2010-2019_to_2020-2020",
+      "rule": "baseline",
+      "train_window": "2010-2019",
+      "test_window": "2020-2020",
+      "params_json": "{\"continuation_horizon_minutes\": 30, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 5.735041310776344, \"volume_min\": 1.0803995131633137}}",
+      "train_classification_accuracy": 0.5588235294117647,
+      "test_classification_accuracy": 0.5217391304347826
+    },
+    {
+      "fold_name": "2010-2019_to_2020-2020",
+      "rule": "treatment",
+      "train_window": "2010-2019",
+      "test_window": "2020-2020",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9166666666666666, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.17209118103572, \"volume_min\": 1.3264420035523845}}",
+      "train_classification_accuracy": 0.5649509803921569,
+      "test_classification_accuracy": 0.5612648221343873
+    },
+    {
+      "fold_name": "2010-2020_to_2021-2021",
+      "rule": "baseline",
+      "train_window": "2010-2020",
+      "test_window": "2021-2021",
+      "params_json": "{\"continuation_horizon_minutes\": 30, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.018054162487463, \"volume_min\": 1.0779773617638178}}",
+      "train_classification_accuracy": 0.5583117363939282,
+      "test_classification_accuracy": 0.5271317829457365
+    },
+    {
+      "fold_name": "2010-2020_to_2021-2021",
+      "rule": "treatment",
+      "train_window": "2010-2020",
+      "test_window": "2021-2021",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9166666666666666, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 9.529254812273681, \"volume_min\": 1.3205234090158353}}",
+      "train_classification_accuracy": 0.5642354683450573,
+      "test_classification_accuracy": 0.49224806201550386
+    },
+    {
+      "fold_name": "2010-2021_to_2022-2022",
+      "rule": "baseline",
+      "train_window": "2010-2021",
+      "test_window": "2022-2022",
+      "params_json": "{\"continuation_horizon_minutes\": 30, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.0769340241317895, \"volume_min\": 1.0782043190194153}}",
+      "train_classification_accuracy": 0.5535653937140926,
+      "test_classification_accuracy": 0.5232558139534884
+    },
+    {
+      "fold_name": "2010-2021_to_2022-2022",
+      "rule": "treatment",
+      "train_window": "2010-2021",
+      "test_window": "2022-2022",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9230769230769231, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.0769340241317895, \"volume_min\": 1.3118091320422849}}",
+      "train_classification_accuracy": 0.5599864819195675,
+      "test_classification_accuracy": 0.46511627906976744
+    },
+    {
+      "fold_name": "2010-2022_to_2023-2023",
+      "rule": "baseline",
+      "train_window": "2010-2022",
+      "test_window": "2023-2023",
+      "params_json": "{\"continuation_horizon_minutes\": 15, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.341074704580285, \"volume_min\": 1.07760500616289}}",
+      "train_classification_accuracy": 0.550512900217594,
+      "test_classification_accuracy": 0.5291828793774319
+    },
+    {
+      "fold_name": "2010-2022_to_2023-2023",
+      "rule": "treatment",
+      "train_window": "2010-2022",
+      "test_window": "2023-2023",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9230769230769231, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 10.220247114922868, \"volume_min\": 1.3074545403915234}}",
+      "train_classification_accuracy": 0.5533105377681069,
+      "test_classification_accuracy": 0.5175097276264592
+    },
+    {
+      "fold_name": "2010-2023_to_2024-2024",
+      "rule": "baseline",
+      "train_window": "2010-2023",
+      "test_window": "2024-2024",
+      "params_json": "{\"continuation_horizon_minutes\": 15, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333335, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.409270385510163, \"volume_min\": 1.0776605776850345}}",
+      "train_classification_accuracy": 0.5500863557858376,
+      "test_classification_accuracy": 0.5096525096525096
+    },
+    {
+      "fold_name": "2010-2023_to_2024-2024",
+      "rule": "treatment",
+      "train_window": "2010-2023",
+      "test_window": "2024-2024",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9230769230769231, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 10.29854336062445, \"volume_min\": 1.3007792135999714}}",
+      "train_classification_accuracy": 0.5509499136442142,
+      "test_classification_accuracy": 0.5444015444015444
+    },
+    {
+      "fold_name": "2010-2024_to_2025-2025",
+      "rule": "baseline",
+      "train_window": "2010-2024",
+      "test_window": "2025-2025",
+      "params_json": "{\"continuation_horizon_minutes\": 15, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.371158723325203, \"volume_min\": 1.0771724956962445}}",
+      "train_classification_accuracy": 0.5464773640503616,
+      "test_classification_accuracy": 0.5525291828793775
+    },
+    {
+      "fold_name": "2010-2024_to_2025-2025",
+      "rule": "treatment",
+      "train_window": "2010-2024",
+      "test_window": "2025-2025",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9230769230769231, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 10.222074580047417, \"volume_min\": 1.3006839588439805}}",
+      "train_classification_accuracy": 0.5504955799624967,
+      "test_classification_accuracy": 0.5797665369649806
+    },
+    {
+      "fold_name": "2010-2025_to_2026-2026",
+      "rule": "baseline",
+      "train_window": "2010-2025",
+      "test_window": "2026-2026",
+      "params_json": "{\"continuation_horizon_minutes\": 15, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.6, \"stop_range_multiple\": 0.75, \"volatility_threshold_quantile\": 0.6, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.8333333333333334, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 6.443022214874911, \"volume_min\": 1.0766329615971193}}",
+      "train_classification_accuracy": 0.5468671679197995,
+      "test_classification_accuracy": 0.5686274509803921
+    },
+    {
+      "fold_name": "2010-2025_to_2026-2026",
+      "rule": "treatment",
+      "train_window": "2010-2025",
+      "test_window": "2026-2026",
+      "params_json": "{\"continuation_horizon_minutes\": 5, \"observation_window_minutes\": 1, \"proxy_threshold_quantile\": 0.8, \"stop_range_multiple\": 1.0, \"volatility_threshold_quantile\": 0.8, \"window_family_mode\": \"09:30_only\"}",
+      "thresholds_json": "{\"09:30_only\": {\"containment_min\": 0.9230769230769231, \"dispersion_max\": 1.0, \"volatility_gate_bp\": 10.30326551556146, \"volume_min\": 1.2961984591963165}}",
+      "train_classification_accuracy": 0.5528822055137844,
+      "test_classification_accuracy": 0.5882352941176471
+    }
+  ],
+  "experiments": {
+    "observation_horizon_sensitivity": [
+      {
+        "rule": "baseline",
+        "observation_window_minutes": 1,
+        "continuation_horizon_minutes": 5,
+        "classification_accuracy": 0.5077519379844961,
+        "event_count": 258
+      },
+      {
+        "rule": "baseline",
+        "observation_window_minutes": 1,
+        "continuation_horizon_minutes": 15,
+        "classification_accuracy": 0.5327669902912622,
+        "event_count": 824
+      },
+      {
+        "rule": "baseline",
+        "observation_window_minutes": 1,
+        "continuation_horizon_minutes": 30,
+        "classification_accuracy": 0.537012987012987,
+        "event_count": 1540
+      },
+      {
+        "rule": "baseline",
+        "observation_window_minutes": 5,
+        "continuation_horizon_minutes": 5,
+        "classification_accuracy": 0.53125,
+        "event_count": 256
+      },
+      {
+        "rule": "treatment",
+        "observation_window_minutes": 1,
+        "continuation_horizon_minutes": 5,
+        "classification_accuracy": 0.5333564975677554,
+        "event_count": 2878
+      }
+    ],
+    "window_family_stability": [
+      {
+        "rule": "baseline",
+        "event_window_name": "cash_open_0930",
+        "tp": 619,
+        "fp": 548,
+        "tn": 914,
+        "fn": 797,
+        "accuracy": 0.5326615705350938,
+        "count": 2878
+      },
+      {
+        "rule": "treatment",
+        "event_window_name": "cash_open_0930",
+        "tp": 74,
+        "fp": 68,
+        "tn": 1461,
+        "fn": 1275,
+        "accuracy": 0.5333564975677554,
+        "count": 2878
+      }
+    ]
+  },
+  "dropped_events": [
+    {
+      "event_date": "2010-12-24",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2011-04-22",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2011-05-30",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 1
+    },
+    {
+      "event_date": "2011-12-26",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2012-01-02",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2012-04-06",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 51
+    },
+    {
+      "event_date": "2012-10-29",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 51
+    },
+    {
+      "event_date": "2012-10-30",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 51
+    },
+    {
+      "event_date": "2012-11-22",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2012-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-01-21",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-02-18",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-03-29",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-05-27",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-07-04",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-09-02",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-11-28",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2013-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-01-20",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-02-17",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-04-18",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-06-12",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-06-13",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-09-23",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-09-24",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-09-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2014-12-31",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2015-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2015-04-03",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 50
+    },
+    {
+      "event_date": "2015-05-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 1
+    },
+    {
+      "event_date": "2015-08-24",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 5
+    },
+    {
+      "event_date": "2015-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2016-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2016-03-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2016-12-26",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2017-01-02",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2017-04-14",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2017-08-07",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 1
+    },
+    {
+      "event_date": "2017-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2018-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2018-03-30",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2018-12-05",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 36
+    },
+    {
+      "event_date": "2018-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2019-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2019-04-19",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2019-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2020-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2020-03-09",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 24
+    },
+    {
+      "event_date": "2020-03-12",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 22
+    },
+    {
+      "event_date": "2020-03-13",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 9
+    },
+    {
+      "event_date": "2020-03-16",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 32
+    },
+    {
+      "event_date": "2020-03-18",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 16
+    },
+    {
+      "event_date": "2020-03-24",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 5
+    },
+    {
+      "event_date": "2020-04-10",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2020-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2021-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2021-04-02",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 51
+    },
+    {
+      "event_date": "2021-12-24",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2022-04-15",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2022-12-26",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2023-01-02",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2023-04-07",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 51
+    },
+    {
+      "event_date": "2023-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2024-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2024-03-29",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2024-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2025-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2025-01-09",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 36
+    },
+    {
+      "event_date": "2025-04-18",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2025-12-25",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    },
+    {
+      "event_date": "2026-01-01",
+      "event_window_name": "cash_open_0930",
+      "reason": "missing_required_bars",
+      "missing_count": 56
+    }
+  ],
+  "implementation_notes": [
+    "This first-pass implementation freezes a continuation-only direction rule.",
+    "Volatility and proxy thresholds are fit from training quantiles instead of being hard-coded.",
+    "The contract still depends on external public event calendars supplied through the package config."
+  ]
+}
