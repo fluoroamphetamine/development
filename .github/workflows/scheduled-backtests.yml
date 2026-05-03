@@ -8,6 +8,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: scheduled-backtests
+  cancel-in-progress: false
+
 jobs:
   run-next-backtest:
     runs-on: ubuntu-latest
@@ -77,6 +81,17 @@ jobs:
             --contract-path "${{ steps.next_strategy.outputs.contract_path }}" \
             --output-dir "backtests/results/${{ steps.next_strategy.outputs.strategy_id }}"
 
+      - name: Print strategy backtest log
+        if: always() && steps.next_strategy.outputs.has_strategy == 'true'
+        run: |
+          LOG_PATH="backtests/results/${{ steps.next_strategy.outputs.strategy_id }}/run.log"
+          echo "----- ${LOG_PATH} -----"
+          if [ -f "$LOG_PATH" ]; then
+            cat "$LOG_PATH"
+          else
+            echo "No run.log was written."
+          fi
+
       - name: Set final backtest status
         if: steps.next_strategy.outputs.has_strategy == 'true'
         id: final_status
@@ -107,6 +122,27 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
+          git config pull.rebase true
+          git config rebase.autoStash true
+
+          git stash push --include-untracked -m workflow-updates || true
+          git pull --rebase origin main
+          git stash pop || true
+
           git add data/r2_manifest.yaml backtests/BACKTEST_LEDGER.md backtests/results/
-          git commit -m "Refresh R2 manifest and backtest outputs" || echo "No changes to commit"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Refresh R2 manifest and backtest outputs"
+
+          for attempt in 1 2 3; do
+            git pull --rebase origin main && git push && exit 0
+            echo "Push attempt ${attempt} failed; retrying after rebase."
+            sleep 2
+          done
+
+          echo "Failed to push workflow updates after retries."
+          exit 1
