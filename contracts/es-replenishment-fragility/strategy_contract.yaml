@@ -1,0 +1,75 @@
+strategy_id: es_replenishment_fragility_2026_05_02
+candidate_name: ES replenishment fragility
+status: compiled_for_backtest
+created_from: backtests/generated/es_replenishment_fragility_2026_05_02/config.yaml
+
+strategic_direction: >-
+  Test whether short-window ES event impulses around 08:30 macro-release and
+  09:30 cash-open windows continue when the initial move has sufficient
+  volatility, volume, dispersion, and containment support.
+
+instrument:
+  symbol: ES
+  dataset_id: ES_1m
+  timeframe: 1m
+  data_contract: data/DATA_CONTRACT.md
+  r2_manifest: data/r2_manifest.yaml
+
+backtest_package:
+  path: backtests/generated/es_replenishment_fragility_2026_05_02
+  entrypoint: backtest.py
+  config: config.yaml
+  expected_results_dir: backtests/results/es_replenishment_fragility_2026_05_02
+
+data:
+  source: r2
+  market_data:
+    r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
+  local_cache_dir: .cache/r2
+
+columns:
+  timestamp: datetime_utc
+  open: Open
+  high: High
+  low: Low
+  close: Close
+  volume: Volume
+
+event_calendars:
+  macro_release_calendar:
+    path: backtests/generated/es_replenishment_fragility_2026_05_02/inputs/macro_release_calendar.csv
+    date_column: event_date
+    required: false
+    missing_behavior: skip_macro_family
+  cash_open_calendar:
+    path: backtests/generated/es_replenishment_fragility_2026_05_02/inputs/cash_open_calendar.csv
+    date_column: event_date
+    required: false
+    missing_behavior: generate_weekday_fallback
+
+execution:
+  tick_size: 0.25
+  point_value: 50.0
+  commissions: 2.5
+
+walk_forward:
+  initial_train_years: 5
+  test_years: 1
+
+strategy:
+  volume_lookback_events: 20
+  report_horizon_minutes: 15
+  parameter_grid:
+    observation_window_minutes: [1, 3, 5]
+    continuation_horizon_minutes: [5, 15, 30]
+    volatility_threshold_quantile: [0.6, 0.7, 0.8]
+    proxy_threshold_quantile: [0.6, 0.7, 0.8]
+    stop_range_multiple: [0.75, 1.0, 1.25]
+    window_family_mode: ["08:30_only", "09:30_only", "separate_models"]
+
+workflow_discovery:
+  discoverable_strategy_contract: strategies/pending/es_replenishment_fragility_2026_05_02.yaml
+  generated_package_required: backtests/generated/es_replenishment_fragility_2026_05_02/backtest.py
+  notes:
+    - This file exists because the generated config references this contract path.
+    - The flat strategies/pending mirror exists because the current workflow discovers flat YAML contracts.
