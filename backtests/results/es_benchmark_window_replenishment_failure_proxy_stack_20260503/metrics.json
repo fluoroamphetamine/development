@@ -1,0 +1,516 @@
+{
+  "strategy_id": "es_benchmark_window_replenishment_failure_proxy_stack_20260503",
+  "contract_path": "strategies/pending/es_benchmark_window_replenishment_failure_proxy_stack_20260503.yaml",
+  "overall": {
+    "baseline": {
+      "selected_events": 1484,
+      "classification_accuracy": 0.5134770889487871,
+      "continuation_return_bps_mean": -0.11878136950714717,
+      "average_trade_pnl_usd": -30.160040431266847
+    },
+    "treatment": {
+      "selected_events": 15,
+      "classification_accuracy": 0.6,
+      "continuation_return_bps_mean": 2.3402173137856255,
+      "average_trade_pnl_usd": -26.666666666666668
+    }
+  },
+  "comparison": {
+    "treatment_minus_baseline_accuracy": 0.0865229110512129
+  },
+  "walk_forward_folds": [
+    {
+      "split_id": 1,
+      "rule_name": "baseline",
+      "selected_events": 68,
+      "classification_accuracy": 0.5735294117647058,
+      "continuation_return_bps_mean": 1.903764503134948,
+      "average_trade_pnl_usd": -14.007352941176471
+    },
+    {
+      "split_id": 1,
+      "rule_name": "treatment",
+      "selected_events": 0,
+      "classification_accuracy": null,
+      "continuation_return_bps_mean": null,
+      "average_trade_pnl_usd": null
+    },
+    {
+      "split_id": 2,
+      "rule_name": "baseline",
+      "selected_events": 85,
+      "classification_accuracy": 0.6352941176470588,
+      "continuation_return_bps_mean": 5.500447909858092,
+      "average_trade_pnl_usd": 25.88235294117647
+    },
+    {
+      "split_id": 2,
+      "rule_name": "treatment",
+      "selected_events": 1,
+      "classification_accuracy": 0.0,
+      "continuation_return_bps_mean": -6.401229035974907,
+      "average_trade_pnl_usd": -92.5
+    },
+    {
+      "split_id": 3,
+      "rule_name": "baseline",
+      "selected_events": 118,
+      "classification_accuracy": 0.559322033898305,
+      "continuation_return_bps_mean": -0.7547793161431607,
+      "average_trade_pnl_usd": -36.567796610169495
+    },
+    {
+      "split_id": 3,
+      "rule_name": "treatment",
+      "selected_events": 1,
+      "classification_accuracy": 0.0,
+      "continuation_return_bps_mean": -3.8744672607516466,
+      "average_trade_pnl_usd": -67.5
+    },
+    {
+      "split_id": 4,
+      "rule_name": "baseline",
+      "selected_events": 71,
+      "classification_accuracy": 0.49295774647887325,
+      "continuation_return_bps_mean": 1.982760054451246,
+      "average_trade_pnl_usd": -10.105633802816902
+    },
+    {
+      "split_id": 4,
+      "rule_name": "treatment",
+      "selected_events": 2,
+      "classification_accuracy": 0.5,
+      "continuation_return_bps_mean": 6.339373613083559,
+      "average_trade_pnl_usd": 38.75
+    },
+    {
+      "split_id": 5,
+      "rule_name": "baseline",
+      "selected_events": 74,
+      "classification_accuracy": 0.5135135135135135,
+      "continuation_return_bps_mean": 0.7171791860453407,
+      "average_trade_pnl_usd": -21.722972972972972
+    },
+    {
+      "split_id": 5,
+      "rule_name": "treatment",
+      "selected_events": 3,
+      "classification_accuracy": 0.3333333333333333,
+      "continuation_return_bps_mean": -2.077185063295466,
+      "average_trade_pnl_usd": -59.166666666666664
+    },
+    {
+      "split_id": 6,
+      "rule_name": "baseline",
+      "selected_events": 119,
+      "classification_accuracy": 0.44537815126050423,
+      "continuation_return_bps_mean": -0.7996662906839277,
+      "average_trade_pnl_usd": -41.34453781512605
+    },
+    {
+      "split_id": 6,
+      "rule_name": "treatment",
+      "selected_events": 1,
+      "classification_accuracy": 0.0,
+      "continuation_return_bps_mean": -3.4132605171089683,
+      "average_trade_pnl_usd": -80.0
+    },
+    {
+      "split_id": 7,
+      "rule_name": "baseline",
+      "selected_events": 132,
+      "classification_accuracy": 0.5606060606060606,
+      "continuation_return_bps_mean": 3.963411248895449,
+      "average_trade_pnl_usd": 20.37878787878788
+    },
+    {
+      "split_id": 7,
+      "rule_name": "treatment",
+      "selected_events": 2,
+      "classification_accuracy": 0.0,
+      "continuation_return_bps_mean": -3.750312526043837,
+      "average_trade_pnl_usd": -86.25
+    },
+    {
+      "split_id": 8,
+      "rule_name": "baseline",
+      "selected_events": 133,
+      "classification_accuracy": 0.39097744360902253,
+      "continuation_return_bps_mean": -1.9470006800557897,
+      "average_trade_pnl_usd": -60.169172932330824
+    },
+    {
+      "split_id": 8,
+      "rule_name": "treatment",
+      "selected_events": 0,
+      "classification_accuracy": null,
+      "continuation_return_bps_mean": null,
+      "average_trade_pnl_usd": null
+    },
+    {
+      "split_id": 9,
+      "rule_name": "baseline",
+      "selected_events": 179,
+      "classification_accuracy": 0.49162011173184356,
+      "continuation_return_bps_mean": -1.8395494202794627,
+      "average_trade_pnl_usd": -69.66480446927375
+    },
+    {
+      "split_id": 9,
+      "rule_name": "treatment",
+      "selected_events": 0,
+      "classification_accuracy": null,
+      "continuation_return_bps_mean": null,
+      "average_trade_pnl_usd": null
+    },
+    {
+      "split_id": 10,
+      "rule_name": "baseline",
+      "selected_events": 198,
+      "classification_accuracy": 0.5,
+      "continuation_return_bps_mean": -1.9407936855102816,
+      "average_trade_pnl_usd": -70.71969696969697
+    },
+    {
+      "split_id": 10,
+      "rule_name": "treatment",
+      "selected_events": 3,
+      "classification_accuracy": 0.3333333333333333,
+      "continuation_return_bps_mean": -4.496408330336284,
+      "average_trade_pnl_usd": -109.16666666666667
+    },
+    {
+      "split_id": 11,
+      "rule_name": "baseline",
+      "selected_events": 167,
+      "classification_accuracy": 0.5329341317365269,
+      "continuation_return_bps_mean": 0.571246247454302,
+      "average_trade_pnl_usd": -19.07185628742515
+    },
+    {
+      "split_id": 11,
+      "rule_name": "treatment",
+      "selected_events": 0,
+      "classification_accuracy": null,
+      "continuation_return_bps_mean": null,
+      "average_trade_pnl_usd": null
+    },
+    {
+      "split_id": 12,
+      "rule_name": "baseline",
+      "selected_events": 140,
+      "classification_accuracy": 0.4714285714285714,
+      "continuation_return_bps_mean": 1.3345566325315323,
+      "average_trade_pnl_usd": 3.75
+    },
+    {
+      "split_id": 12,
+      "rule_name": "treatment",
+      "selected_events": 2,
+      "classification_accuracy": 1.0,
+      "continuation_return_bps_mean": 8.690070943039604,
+      "average_trade_pnl_usd": 220.0
+    }
+  ],
+  "chosen_parameters": [
+    {
+      "split_id": 1,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 1,
+      "rule_name": "treatment",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 2,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 2,
+      "rule_name": "treatment",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 3,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 3,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.6,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 4,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 4,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.25,
+      "impulse_containment_threshold_ratio": 0.6,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 5,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 5,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.25,
+      "impulse_containment_threshold_ratio": 0.6,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 6,
+      "rule_name": "baseline",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 6,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 6.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.6,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 7,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 7,
+      "rule_name": "treatment",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 8,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 8.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 8,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 9,
+      "rule_name": "baseline",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 6.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 9,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 10,
+      "rule_name": "baseline",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 6.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 10,
+      "rule_name": "treatment",
+      "observation_window_minutes": 5,
+      "evaluation_horizon_minutes": 15,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 2.0,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 11,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 11,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 12,
+      "rule_name": "baseline",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 5,
+      "baseline_impulse_threshold_bps": 6.0,
+      "dispersion_stress_threshold_ratio": 1.25,
+      "volume_rate_context_threshold_ratio": 1.0,
+      "impulse_containment_threshold_ratio": 0.4,
+      "event_family_mode": "09:30"
+    },
+    {
+      "split_id": 12,
+      "rule_name": "treatment",
+      "observation_window_minutes": 3,
+      "evaluation_horizon_minutes": 10,
+      "baseline_impulse_threshold_bps": 4.0,
+      "dispersion_stress_threshold_ratio": 1.5,
+      "volume_rate_context_threshold_ratio": 1.5,
+      "impulse_containment_threshold_ratio": 0.8,
+      "event_family_mode": "09:30"
+    }
+  ],
+  "macro_calendar": {
+    "available": true,
+    "note": null
+  },
+  "event_inventory": {
+    "cash_open_events": 4051,
+    "macro_events": 0,
+    "skipped_events": [
+      {
+        "event_date": "2011-05-30",
+        "event_family": "09:30",
+        "reason": "missing_required_minutes"
+      },
+      {
+        "event_date": "2020-03-09",
+        "event_family": "09:30",
+        "reason": "missing_required_minutes"
+      },
+      {
+        "event_date": "2020-03-12",
+        "event_family": "09:30",
+        "reason": "missing_required_minutes"
+      },
+      {
+        "event_date": "2020-03-16",
+        "event_family": "09:30",
+        "reason": "missing_required_minutes"
+      }
+    ]
+  },
+  "implementation_notes": [
+    "This first-pass implementation uses continuation direction rather than fade logic.",
+    "The 09:30 cash-open family is deterministic from the bar set; the 08:30 macro family requires a real public calendar.",
+    "Thresholds are chosen through walk-forward selection from the minimal contract grid rather than hard-coded conclusions."
+  ]
+}

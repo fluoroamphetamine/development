@@ -1,0 +1,3 @@
+Created empty macro calendar placeholder: backtests/generated/es_benchmark_window_replenishment_failure_proxy_stack_20260503/inputs/macro_release_calendar.csv
+PYTHONPATH=/home/runner/work/development/development
+Running command: /opt/hostedtoolcache/Python/3.12.13/x64/bin/python backtests/generated/es_benchmark_window_replenishment_failure_proxy_stack_20260503/backtest.py --config backtests/results/es_benchmark_window_replenishment_failure_proxy_stack_20260503/config.runtime.yaml

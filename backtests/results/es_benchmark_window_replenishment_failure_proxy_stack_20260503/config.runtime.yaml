@@ -1,0 +1,68 @@
+runtime:
+  timezone: America/New_York
+  output_dir: backtests/results/es_benchmark_window_replenishment_failure_proxy_stack_20260503
+  contract_path: strategies/pending/es_benchmark_window_replenishment_failure_proxy_stack_20260503.yaml
+strategy:
+  id: es_benchmark_window_replenishment_failure_proxy_stack_20260503
+  trailing_context_events: 20
+  train_months: 36
+  test_months: 12
+  parameter_grid:
+    observation_window_minutes:
+    - 3
+    - 5
+    evaluation_horizon_minutes:
+    - 5
+    - 10
+    - 15
+    baseline_impulse_threshold_bps:
+    - 4.0
+    - 6.0
+    - 8.0
+    dispersion_stress_threshold_ratio:
+    - 1.25
+    - 1.5
+    - 2.0
+    volume_rate_context_threshold_ratio:
+    - 1.0
+    - 1.25
+    - 1.5
+    impulse_containment_threshold_ratio:
+    - 0.4
+    - 0.6
+    - 0.8
+    event_family_mode:
+    - 08:30
+    - 09:30
+    - separate
+data:
+  source: r2
+  market_data:
+    r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
+  local_cache_dir: .cache/r2
+columns:
+  timestamp: datetime_utc
+  open: Open
+  high: High
+  low: Low
+  close: Close
+  volume: Volume
+event_calendars:
+  macro_release_calendar:
+    path: backtests/generated/es_benchmark_window_replenishment_failure_proxy_stack_20260503/inputs/macro_release_calendar.csv
+    format: csv
+    date_column: event_date
+    required: false
+  cash_open_calendar:
+    mode: deterministic_us_equity_cash_open
+execution:
+  tick_size: 0.25
+  point_value: 50.0
+  slippage_ticks_per_side: 1.0
+  commissions_per_side_usd: 2.5
+outputs:
+  trades: trades.parquet
+  equity_curve: equity_curve.parquet
+  metrics: metrics.json
+  diagnostics: diagnostics.parquet
+  report: report.md
