@@ -1,5 +1,5 @@
 bucket: futures-data
-generated_at_utc: 2026-05-03 02:45:18 UTC
+generated_at_utc: 2026-05-03 02:58:34 UTC
 endpoint_env: R2_ENDPOINT
 bucket_env: R2_BUCKET
 access_key_env: R2_ACCESS_KEY_ID
