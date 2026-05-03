@@ -96,14 +96,49 @@ jobs:
         if: steps.next_strategy.outputs.has_strategy == 'true'
         id: final_status
         run: |
+          RESULT_DIR="backtests/results/${{ steps.next_strategy.outputs.strategy_id }}"
+          METRICS_PATH="${RESULT_DIR}/metrics.json"
+
+          if [ -f "${RESULT_DIR}/missing_backtest_package.flag" ]; then
+            echo "status=missing_backtest_package" >> "$GITHUB_OUTPUT"
+            echo "notes=Generated backtest package is missing." >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          if [ -f "$METRICS_PATH" ]; then
+            METRIC_STATUS=$(python - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path("backtests/results/${{ steps.next_strategy.outputs.strategy_id }}/metrics.json")
+          try:
+              print((json.loads(path.read_text()).get("status") or "").strip())
+          except Exception:
+              print("")
+          PY
+          )
+            if [ "$METRIC_STATUS" = "missing_schedule_data" ]; then
+              echo "status=blocked_missing_input" >> "$GITHUB_OUTPUT"
+              echo "notes=Missing required schedule/input data. See metrics.json." >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$METRIC_STATUS" = "missing_required_input" ]; then
+              echo "status=blocked_missing_input" >> "$GITHUB_OUTPUT"
+              echo "notes=Missing required input data. See metrics.json." >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            if [ "$METRIC_STATUS" = "no_events" ]; then
+              echo "status=needs_review" >> "$GITHUB_OUTPUT"
+              echo "notes=No valid events after loading inputs. See metrics.json." >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+          fi
+
           if [ "${{ steps.run_backtest.outcome }}" = "success" ]; then
             echo "status=completed" >> "$GITHUB_OUTPUT"
+            echo "notes=Backtest completed." >> "$GITHUB_OUTPUT"
           else
-            if [ -f "backtests/results/${{ steps.next_strategy.outputs.strategy_id }}/missing_backtest_package.flag" ]; then
-              echo "status=missing_backtest_package" >> "$GITHUB_OUTPUT"
-            else
-              echo "status=failed" >> "$GITHUB_OUTPUT"
-            fi
+            echo "status=failed" >> "$GITHUB_OUTPUT"
+            echo "notes=Backtest failed. See run.log." >> "$GITHUB_OUTPUT"
           fi
 
       - name: Update backtest ledger
@@ -115,7 +150,8 @@ jobs:
             --contract-path "${{ steps.next_strategy.outputs.contract_path }}" \
             --result-dir "backtests/results/${{ steps.next_strategy.outputs.strategy_id }}" \
             --status "${{ steps.final_status.outputs.status }}" \
-            --workflow-run "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            --workflow-run "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --notes "${{ steps.final_status.outputs.notes }}"
 
       - name: Commit updates
         if: always()
