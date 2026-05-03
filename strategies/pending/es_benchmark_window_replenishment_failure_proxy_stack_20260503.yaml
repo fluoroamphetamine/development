@@ -1,0 +1,11 @@
+strategy_id: es_benchmark_window_replenishment_failure_proxy_stack_20260503
+source_repo: fluoroamphetamine/strategy
+source_contract_path: contracts/es-benchmark-window-replenishment-failure-proxy-stack/strategy_contract.yaml
+generated_package:
+  backtest: backtests/generated/es_benchmark_window_replenishment_failure_proxy_stack_20260503/backtest.py
+  config: backtests/generated/es_benchmark_window_replenishment_failure_proxy_stack_20260503/config.yaml
+status: pending_input_macro_calendar
+notes:
+  - The runnable package exists.
+  - The 09:30 cash-open family can run from the packaged deterministic calendar.
+  - The 08:30 macro family remains unavailable until a real public macro-release calendar is supplied.
