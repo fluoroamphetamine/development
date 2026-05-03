@@ -1,0 +1,11 @@
+{
+  "reason": "The packaged MSCI review schedule template is empty. Replace it with real review dates to run the backtest against R2 market data.",
+  "required_inputs": [
+    "MSCI review schedule CSV or Parquet with a review_date column",
+    "R2_ENDPOINT",
+    "R2_ACCESS_KEY_ID",
+    "R2_SECRET_ACCESS_KEY",
+    "R2_BUCKET"
+  ],
+  "status": "missing_schedule_data"
+}
