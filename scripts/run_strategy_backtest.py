@@ -7,6 +7,9 @@ import os
 import subprocess
 import sys
 from pathlib import Path
+from typing import Any
+
+import yaml
 
 
 def parse_args() -> argparse.Namespace:
@@ -15,6 +18,35 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--contract-path", default="")
     parser.add_argument("--output-dir", required=True)
     return parser.parse_args()
+
+
+def load_yaml(path: Path) -> dict[str, Any]:
+    with path.open("r", encoding="utf-8") as handle:
+        data = yaml.safe_load(handle)
+    return data or {}
+
+
+def write_runtime_config(
+    config_yaml: Path,
+    output_dir: Path,
+    contract_path: Path | None,
+) -> Path:
+    """Copy generated config and inject workflow runtime paths.
+
+    Some generated backtests only accept `--config`, not `--output-dir` or
+    `--contract`. This wrapper normalizes those values into a temporary config
+    file so generated backtests can remain simple.
+    """
+
+    config = load_yaml(config_yaml)
+    runtime = config.setdefault("runtime", {})
+    runtime["output_dir"] = output_dir.as_posix()
+    if contract_path is not None:
+        runtime["contract_path"] = contract_path.as_posix()
+
+    runtime_config = output_dir / "config.runtime.yaml"
+    runtime_config.write_text(yaml.safe_dump(config, sort_keys=False), encoding="utf-8")
+    return runtime_config
 
 
 def main() -> int:
@@ -52,18 +84,20 @@ def main() -> int:
             log_file.write(f"Installing requirements: {' '.join(install_cmd)}\n")
             subprocess.run(install_cmd, stdout=log_file, stderr=subprocess.STDOUT, check=True)
 
-    cmd = [
-        sys.executable,
-        backtest_py.as_posix(),
-        "--output-dir",
-        output_dir.as_posix(),
-    ]
-
-    if contract_path is not None:
-        cmd.extend(["--contract", contract_path.as_posix()])
+    cmd = [sys.executable, backtest_py.as_posix()]
 
     if config_yaml.exists():
-        cmd.extend(["--config", config_yaml.as_posix()])
+        runtime_config = write_runtime_config(
+            config_yaml=config_yaml,
+            output_dir=output_dir,
+            contract_path=contract_path,
+        )
+        cmd.extend(["--config", runtime_config.as_posix()])
+    else:
+        # Fallback for future generated scripts that do not use config.yaml.
+        cmd.extend(["--output-dir", output_dir.as_posix()])
+        if contract_path is not None:
+            cmd.extend(["--contract", contract_path.as_posix()])
 
     env = os.environ.copy()
 
