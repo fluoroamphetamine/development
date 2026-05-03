@@ -1,23 +1,15 @@
 # ES Replenishment Fragility Backtest
 
-This directory contains a runnable first-pass backtest for the strategy contract:
+This package implements the canonical contract at `contracts/es-replenishment-fragility/strategy_contract.yaml` and keeps the data-loading path compatible with `backtests.lib.r2_data`.
 
-- `strategy-contracts/es-replenishment-fragility/2026-05-02-strategy_contract.yaml`
+## What Changed
 
-## What It Does
-
-- Loads ES 1-minute bars from Cloudflare R2 through `backtests.lib.r2_data`
-- Loads two local public calendar files:
-  - `macro_release_calendar.csv`
-  - `cash_open_calendar.csv`
-- Builds event-level features for 08:30 macro windows and 09:30 cash-open windows
-- Runs expanding walk-forward parameter selection and out-of-sample evaluation
-- Writes:
-  - `trades.parquet`
-  - `equity_curve.parquet`
-  - `metrics.json`
-  - `diagnostics.parquet`
-  - `report.md`
+- The parameter grid now matches the contract more closely:
+  - observation windows: `1, 3, 5` minutes
+  - continuation horizons: `5, 15, 30` minutes
+  - volatility and proxy thresholds fit from training quantiles
+  - window-family modes: `08:30_only`, `09:30_only`, `separate_models`
+- The backtest now makes the missing validation experiments explicit instead of treating them as hidden implementation choices.
 
 ## Required Inputs
 
@@ -26,11 +18,7 @@ Create these files under `backtests/generated/es_replenishment_fragility_2026_05
 - `macro_release_calendar.csv`
 - `cash_open_calendar.csv`
 
-Each file should contain at least:
-
-- `event_date`
-
-Example:
+Each file must contain at least:
 
 ```csv
 event_date
@@ -38,22 +26,11 @@ event_date
 2024-02-01
 ```
 
-More detailed input notes live in `inputs/README.md`.
+## Data Source
 
-## Setup
-
-From the repository root:
-
-```bash
-python -m pip install -r backtests/generated/es_replenishment_fragility_2026_05_02/requirements.txt
-```
-
-Set the required R2 environment variables before running:
-
-- `R2_ENDPOINT`
-- `R2_ACCESS_KEY_ID`
-- `R2_SECRET_ACCESS_KEY`
-- `R2_BUCKET`
+- Market data is loaded from Cloudflare R2 through `backtests.lib.r2_data`.
+- The confirmed ES dataset key from `data/r2_manifest.yaml` is:
+  - `ES/ES-20100606-20260315.ohlcv-1m.parquet`
 
 ## Run
 
@@ -64,8 +41,18 @@ python backtests/generated/es_replenishment_fragility_2026_05_02/backtest.py \
   --config backtests/generated/es_replenishment_fragility_2026_05_02/config.yaml
 ```
 
-## Notes
+## Outputs
 
-- The ES R2 key is confirmed from `data/r2_manifest.yaml`.
-- The public event calendars were not available in the current run, so their paths remain explicit placeholders in `config.yaml`.
-- The contract already includes a solid first-pass validation path, so no extra experiments were added before implementation.
+The run writes:
+
+- `trades.parquet`
+- `equity_curve.parquet`
+- `metrics.json`
+- `diagnostics.parquet`
+- `report.md`
+
+## Validation Experiments Added
+
+- Observation and exit stability
+- Proxy incremental value versus the volatility-only baseline
+- Window-family stability across 08:30 and 09:30
