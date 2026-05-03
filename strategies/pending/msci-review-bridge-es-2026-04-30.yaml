@@ -1,0 +1,10 @@
+strategy_id: msci-review-bridge-es-2026-04-30
+source_repo: fluoroamphetamine/strategy
+source_contract_path: contracts/msci-review-bridge-es/strategy_contract.yaml
+generated_package:
+  backtest: backtests/generated/msci-review-bridge-es-2026-04-30/backtest.py
+  config: backtests/generated/msci-review-bridge-es-2026-04-30/config.yaml
+status: pending_input_schedule
+notes:
+  - The runnable package exists.
+  - A real MSCI implementation-date calendar is still required before execution.
