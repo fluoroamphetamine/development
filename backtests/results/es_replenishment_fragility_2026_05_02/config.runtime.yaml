@@ -8,12 +8,12 @@ data:
     r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
   local_cache_dir: .cache/r2
 columns:
-  timestamp: timestamp
-  open: open
-  high: high
-  low: low
-  close: close
-  volume: volume
+  timestamp: datetime_utc
+  open: Open
+  high: High
+  low: Low
+  close: Close
+  volume: Volume
 event_calendars:
   macro_release_calendar:
     path: backtests/generated/es_replenishment_fragility_2026_05_02/inputs/macro_release_calendar.csv
