@@ -1,0 +1,55 @@
+runtime:
+  timezone: America/New_York
+  contract_path: contracts/cpi-morning-precedence-es-first-2026-04-29/strategy_contract.yaml
+  output_dir: backtests/results/cpi_morning_precedence_es_first_2026_04_29
+
+strategy:
+  id: cpi_morning_precedence_es_first_2026_04_29
+  parameter_grid:
+    branch_score_abs_min: [0.05, 0.1, 0.15]
+    reentry_noise_ratio_max: [1.5, 2.0, 2.5]
+    reentry_dispersion_stress_max: [0.006, 0.009, 0.012]
+    stop_range_frac: [0.35, 0.5, 0.65]
+
+data:
+  source: r2
+  market_data:
+    r2_key: ES/ES-20100606-20260315.ohlcv-1m.parquet
+  local_cache_dir: .cache/r2
+
+columns:
+  timestamp: datetime_utc
+  open: Open
+  high: High
+  low: Low
+  close: Close
+  volume: Volume
+
+inputs:
+  cpi_release_calendar:
+    path: backtests/generated/cpi_morning_precedence_es_first_2026_04_29/inputs/cpi_release_calendar.csv
+    format: csv
+    date_column: release_date
+  cpi_component_table:
+    path: backtests/generated/cpi_morning_precedence_es_first_2026_04_29/inputs/cpi_component_table.csv
+    format: csv
+    columns:
+      date: release_date
+      headline_mom: headline_mom
+      core_mom: core_mom
+      shelter_mom: shelter_mom
+      core_services_ex_shelter_mom: core_services_ex_shelter_mom
+      core_goods_mom: core_goods_mom
+
+execution:
+  tick_size: 0.25
+  point_value: 50.0
+  slippage_ticks_per_side: 1.0
+  commissions_round_turn_usd: 4.0
+
+outputs:
+  trades: trades.parquet
+  equity_curve: equity_curve.parquet
+  metrics: metrics.json
+  diagnostics: diagnostics.parquet
+  report: report.md
