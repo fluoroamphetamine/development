@@ -1,0 +1,15 @@
+Traceback (most recent call last):
+  File "/home/runner/work/development/development/backtests/generated/cpi_morning_precedence_es_first_2026_04_29/backtest.py", line 520, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/runner/work/development/development/backtests/generated/cpi_morning_precedence_es_first_2026_04_29/backtest.py", line 431, in main
+    calendar, components = load_inputs(config)
+                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/development/development/backtests/generated/cpi_morning_precedence_es_first_2026_04_29/backtest.py", line 82, in load_inputs
+    calendar = load_csv_table(Path(inputs_cfg["cpi_release_calendar"]["path"]), "CPI release calendar")
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/development/development/backtests/generated/cpi_morning_precedence_es_first_2026_04_29/backtest.py", line 64, in load_csv_table
+    raise FileNotFoundError(
+FileNotFoundError: Missing required CPI release calendar at backtests/generated/cpi_morning_precedence_es_first_2026_04_29/inputs/cpi_release_calendar.csv. Supply a real public input file before running.
+PYTHONPATH=/home/runner/work/development/development
+Running command: /opt/hostedtoolcache/Python/3.12.13/x64/bin/python backtests/generated/cpi_morning_precedence_es_first_2026_04_29/backtest.py --config backtests/results/cpi_morning_precedence_es_first_2026_04_29/config.runtime.yaml
