@@ -1,0 +1,11 @@
+strategy_id: cpi_morning_precedence_es_first_2026_04_29
+source_repo: fluoroamphetamine/strategy
+source_contract_path: contracts/cpi-morning-precedence-es-first-2026-04-29/strategy_contract.yaml
+generated_package:
+  backtest: backtests/generated/cpi_morning_precedence_es_first_2026_04_29/backtest.py
+  config: backtests/generated/cpi_morning_precedence_es_first_2026_04_29/config.yaml
+status: pending_input_public_cpi_tables
+notes:
+  - The runnable package exists.
+  - Execution requires a real CPI release calendar CSV.
+  - Execution requires a real CPI component table CSV with the configured columns.
